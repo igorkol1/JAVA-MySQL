@@ -1,22 +1,46 @@
 package a_Zadania.a_Dzien_1.b_Dodawanie_danych;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class Main1 {
 
-    //zapisz poniżej zapytania dodające rekordy do pierwszej tabeli:
+    /*
+    select * from products;
 
-    public String table1row1 = "";
-    public String table1row2 = "";
+    insert into products(name, description, price) VALUE ("Chleb","Chleb razowy",2.50);
 
+    insert into products(name, description, price) VALUE ("Masło","Delma",5);
 
-	//zapisz poniżej zapytania dodające rekordy do drugiej tabeli:
+    select * from orders;
 
-    public String table2row1 = "";
-    public String table2row2 = "";
+    insert into orders(description) value ('Zakupy do szkoły');
 
+    insert into orders(description) value ('Zakupy do pracy');
 
-	//zapisz poniżej zapytania dodające rekordy do trzeciej tabeli:
-	
-    public String table3row1 = "";
-    public String table3row2 = "";
+    select * from clients;
+
+    insert into clients(name, surname) VALUE ('Igor','Kołodziejczyk');
+
+    insert into clients(name, surname) VALUE ('Jan','Kowalski');
+
+     */
+
+    public static void main(String[] args) {
+        executeStatement("products_ex", "insert into products(name, description, price) VALUE (\"Chleb\",\"Chleb razowy\",2.50);");
+    }
+
+    protected static void executeStatement(String databaseName, String query) {
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/" + databaseName + "?useSSL=false&characterEncoding=utf8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+                "root", "coderslab");
+             Statement stat = conn.createStatement()) {
+            stat.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -11,7 +11,7 @@ public class Main4 {
         System.out.println("Stworzono nowe kino");
     }
 
-    private static String[] getCinemaData() {
+    public static String[] getCinemaData() {
         String[] cinemaData = new String[2];
         System.out.println("Podaj nazwe kina");
         cinemaData[0] = readDataFromConsole(20);

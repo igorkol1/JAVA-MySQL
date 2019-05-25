@@ -8,7 +8,7 @@ public class Main1 {
 
     public String query3 = "select * from users where email like '%@yahoo.com' and name like 'L%';";
 
-    public String query4 = "select * from users where password=SHA2(CONCAT(name,salt),256);";
+    public String query4 = "select * from users where PASSWORD=SHA2(CONCAT(name,salt),256);";
 
     public String query5 = "select id,title from offers where price>500000;";
 

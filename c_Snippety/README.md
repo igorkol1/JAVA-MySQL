@@ -48,7 +48,7 @@ Powyższe zapytanie resetuje również automatycznie licznik `auto_increment`
 
 Najpierw dodajemy użytkownika:  
 ```SQL
-CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'username'@'localhost' IDENTIFIED BY PASSWORD;
 ```
 
 A następnie musimy dodać użytkownikowi dostęp do wybranej bazy/tabeli

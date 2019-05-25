@@ -10,13 +10,13 @@ public class Main7 {
     public static void main(String[] args) {
         DatabaseUtils.executeQueryAndPrintResult("cinemas_ex","select id,name from cinemas;",new String[]{"id","name"});
         System.out.println("");
-        String cinemaName = getCinemaParameter();
+        String cinemaName = getParameter("Podaj id kina: ");
         getMoviesForCinema(cinemaName);
     }
 
-    protected static String getCinemaParameter(){
+    protected static String getParameter(String message){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj id kina: ");
+        System.out.println(message);
         return scanner.nextLine();
     }
 
